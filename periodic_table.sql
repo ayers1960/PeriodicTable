@@ -49,8 +49,8 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.elements (
     atomic_number integer NOT NULL,
-    symbol character varying(2),
-    name character varying(40)
+    symbol character varying(2) NOT NULL,
+    name character varying(40) NOT NULL
 );
 
 
@@ -63,9 +63,9 @@ ALTER TABLE public.elements OWNER TO freecodecamp;
 CREATE TABLE public.properties (
     atomic_number integer NOT NULL,
     type character varying(30),
-    weight numeric(9,6) NOT NULL,
-    melting_point numeric,
-    boiling_point numeric
+    atomic_mass numeric(9,6) NOT NULL,
+    melting_point_celsius numeric NOT NULL,
+    boiling_point_celsius numeric NOT NULL
 );
 
 
@@ -120,11 +120,11 @@ INSERT INTO public.properties VALUES (1000, 'metalloid', 1.000000, 10, 100);
 
 
 --
--- Name: elements elements_atomic_number_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: elements elements_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.elements
-    ADD CONSTRAINT elements_atomic_number_key UNIQUE (atomic_number);
+    ADD CONSTRAINT elements_name_key UNIQUE (name);
 
 
 --
@@ -136,6 +136,14 @@ ALTER TABLE ONLY public.elements
 
 
 --
+-- Name: elements elements_symbol_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.elements
+    ADD CONSTRAINT elements_symbol_key UNIQUE (symbol);
+
+
+--
 -- Name: properties properties_atomic_number_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
@@ -144,19 +152,19 @@ ALTER TABLE ONLY public.properties
 
 
 --
--- Name: properties properties_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.properties
-    ADD CONSTRAINT properties_pkey PRIMARY KEY (atomic_number);
-
-
---
 -- Name: types types_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.types
     ADD CONSTRAINT types_pkey PRIMARY KEY (type_id);
+
+
+--
+-- Name: properties fk_atomic_number; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.properties
+    ADD CONSTRAINT fk_atomic_number FOREIGN KEY (atomic_number) REFERENCES public.elements(atomic_number);
 
 
 --
