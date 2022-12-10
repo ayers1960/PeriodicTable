@@ -62,7 +62,6 @@ ALTER TABLE public.elements OWNER TO freecodecamp;
 
 CREATE TABLE public.properties (
     atomic_number integer NOT NULL,
-    type character varying(30),
     atomic_mass numeric(9,6) NOT NULL,
     melting_point_celsius numeric NOT NULL,
     boiling_point_celsius numeric NOT NULL,
@@ -103,15 +102,15 @@ INSERT INTO public.elements VALUES (1000, 'Mt', 'moTanium');
 -- Data for Name: properties; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.properties VALUES (1, 'nonmetal', 1.008000, -259.1, -252.9, 3);
-INSERT INTO public.properties VALUES (2, 'nonmetal', 4.002600, -272.2, -269, 3);
-INSERT INTO public.properties VALUES (3, 'metal', 6.940000, 180.54, 1342, 1);
-INSERT INTO public.properties VALUES (4, 'metal', 9.012200, 1287, 2470, 1);
-INSERT INTO public.properties VALUES (5, 'metalloid', 10.810000, 2075, 4000, 2);
-INSERT INTO public.properties VALUES (6, 'nonmetal', 12.011000, 3550, 4027, 3);
-INSERT INTO public.properties VALUES (7, 'nonmetal', 14.007000, -210.1, -195.8, 3);
-INSERT INTO public.properties VALUES (8, 'nonmetal', 15.999000, -218, -183, 3);
-INSERT INTO public.properties VALUES (1000, 'metalloid', 1.000000, 10, 100, 2);
+INSERT INTO public.properties VALUES (1, 1.008000, -259.1, -252.9, 3);
+INSERT INTO public.properties VALUES (2, 4.002600, -272.2, -269, 3);
+INSERT INTO public.properties VALUES (3, 6.940000, 180.54, 1342, 1);
+INSERT INTO public.properties VALUES (4, 9.012200, 1287, 2470, 1);
+INSERT INTO public.properties VALUES (5, 10.810000, 2075, 4000, 2);
+INSERT INTO public.properties VALUES (6, 12.011000, 3550, 4027, 3);
+INSERT INTO public.properties VALUES (7, 14.007000, -210.1, -195.8, 3);
+INSERT INTO public.properties VALUES (8, 15.999000, -218, -183, 3);
+INSERT INTO public.properties VALUES (1000, 1.000000, 10, 100, 2);
 
 
 --
