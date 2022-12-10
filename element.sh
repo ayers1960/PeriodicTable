@@ -6,7 +6,7 @@ ARGC=$#
 if [[ $ARGC -ne 1 ]] 
 then
    echo "Please provide an element as an argument."
-   exit 1
+   exit
 else
    value=$1
 fi
